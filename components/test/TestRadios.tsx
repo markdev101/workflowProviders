@@ -1,5 +1,6 @@
+import * as React from 'react';
 import './css/testRadios.css';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const TestRadios: any = (props: any) => {
   const [selected, setSelected] = useState('workflow');

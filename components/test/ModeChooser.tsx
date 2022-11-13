@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
-import AppContext from "../../providers/AppContext";
-import OptionsToggle from "./OptionToggle";
+import React, { useContext } from 'react';
+import AppContext from '../../providers/AppContext';
+import OptionsToggle from './OptionsToggle';
 
 const ModeChooser = () => {
   // const [mode, setMode] = useState("preset");
 
   const appData: any = useContext(AppContext);
-  console.log("ModeChooser init:  mode=" + appData.mode);
+  console.log('ModeChooser init:  mode=' + appData.mode);
 
   const onToggle = (dir: string) => {
-    console.log("MODE CHOOSER toggled " + dir);
+    console.log('MODE CHOOSER toggled ' + dir);
     // update global app context
-    appData.mode = dir === "left" ? "workflow" : "preset";
+    appData.mode = dir === 'left' ? 'workflow' : 'preset';
   };
-  const direction = appData.mode === "workflow" ? "left" : "right";
-  console.log("ModeChooser direction  = " + direction);
+  const direction = appData.mode === 'workflow' ? 'left' : 'right';
+  console.log('ModeChooser direction  = ' + direction);
 
   return (
     <OptionsToggle

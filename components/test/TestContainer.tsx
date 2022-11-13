@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { AppProvider } from '../../providers/AppContext';
 // import TestToggle from "./components/test/TestToggle";
 import TestRadios from './TestRadios';

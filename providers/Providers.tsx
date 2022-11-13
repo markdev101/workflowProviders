@@ -1,6 +1,6 @@
 // src/state/Providers.tsx
-
-import React, { FunctionComponent } from 'react';
+import * as React from 'react';
+import { FunctionComponent } from 'react';
 import { AddressBookProvider } from './state/AddressBook.tsx';
 import { EmailProvider } from './state/Email.tsx';
 

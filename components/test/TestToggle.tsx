@@ -1,9 +1,10 @@
-import "./css/testToggle.css";
-import React, { useState } from "react";
+import * as React from 'react';
+import './css/testToggle.css';
+import { useState } from 'react';
 
 const TestToggle: any = (props: any) => {
   // states
-  const [stDirection, setDirection] = useState("left");
+  const [stDirection, setDirection] = useState('left');
   const [stSwitch, setSwitch] = useState(false);
 
   // parse attributes/props
@@ -16,17 +17,17 @@ const TestToggle: any = (props: any) => {
   // ) {
   //   setDirection(props.direction);
   // }
-  const dir = props.direction ? props.direction : "left";
+  const dir = props.direction ? props.direction : 'left';
   const thumbClass =
-    dir === "right"
+    dir === 'right'
       ? !stSwitch
-        ? "toggleButton toggleRight toggleWhite"
-        : "toggleButton toggleRight toggleGreen"
-      : "toggleButton toggleWhite";
+        ? 'toggleButton toggleRight toggleWhite'
+        : 'toggleButton toggleRight toggleGreen'
+      : 'toggleButton toggleWhite';
 
   const handleClick = () => {
-    const newDirection = stDirection === "left" ? "right" : "left";
-    console.log("TESTToggle changed to " + newDirection);
+    const newDirection = stDirection === 'left' ? 'right' : 'left';
+    console.log('TESTToggle changed to ' + newDirection);
 
     setDirection(newDirection); // async
     if (props.onToggle) {
