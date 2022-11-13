@@ -1,0 +1,17 @@
+.radios {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 240px;
+  height: 200px;
+  padding: 2px;
+  background-color: #fffdde;
+  border: solid 1px #888;
+  border-radius: 6px;
+}
+
+.modeToggle {
+  position: relative;
+  top: 100px;
+  left: 10px;
+}

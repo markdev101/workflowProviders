@@ -1,0 +1,36 @@
+.radios {
+  text-align: left;
+  width: 240px;
+  padding: 10px;
+  background-color: #fffeee;
+}
+.radioItem {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 12pt;
+  margin-bottom: 12px;
+  padding-left: 4px;
+}
+.radios h4 {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+}
+.radioButtons {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+.radiosTitle {
+  position: absolute;
+  top: 6px;
+  left: 10px;
+  font-weight: bold;
+  font-size: 13pt;
+  color: darkblue;
+}
+
+.radioItem label {
+  margin-right: 6px;
+}
