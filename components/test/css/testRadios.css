@@ -1,4 +1,7 @@
 .radios {
+  position: absolute;
+  top: 67px;
+  left: 2px;
   text-align: left;
   width: 240px;
   padding: 10px;

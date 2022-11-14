@@ -17,12 +17,24 @@ const TestContainer = () => {
     theme: 'light',
   };
 
+  const workflowDiv = {
+    position: 'absolute',
+    top: '100px',
+    left: '6px',
+    width: '270px',
+    height: '80%',
+    overflow: 'auto',
+    border: 'solid 1px gray',
+  };
+
   return (
     <div>
       <AppProvider value={appData}>
         <div> {'Mode = ' + appData.mode}</div>
-        <ModeChooser className="modeToggle"></ModeChooser>
-        <TestRadios className="radios"></TestRadios>
+        <div style={workflowDiv}>
+          <ModeChooser className="modeToggle"></ModeChooser>
+          <TestRadios className="radios"></TestRadios>
+        </div>
       </AppProvider>
     </div>
   );
