@@ -13,8 +13,12 @@ const TestRadios: any = (props: any) => {
       setSelected(target.value);
     }
   };
+  const spanStyle = {
+    marginLeft: '10px',
+  };
   const title = props.title ? props.title : 'Select one:';
 
+  console.log('RADIOS:  props=', props);
   return (
     <div className="radios">
       <div className="radiosTitle">{title}</div>
@@ -26,11 +30,11 @@ const TestRadios: any = (props: any) => {
                   <label>
                     <input
                       type="radio"
-                      value={v.name}
-                      checked={selected === v.name}
+                      value={v}
+                      checked={selected === v}
                       onChange={handleChange}
                     />
-                    <span>{v.name}</span>
+                    <span style={spanStyle}>{v}</span>
                   </label>
                 </div>
               );
