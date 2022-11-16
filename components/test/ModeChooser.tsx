@@ -26,7 +26,9 @@ const ModeChooser = () => {
   const onToggle = (dir: string) => {
     console.log('MODE CHOOSER toggled ' + dir);
     // update global app context
-    updateMode(dir);
+    let m = dir === 'right' ? 'preset' : 'workflow';
+    appObj.mode = m;
+    updateMode(m);
   };
   const direction = appObj.mode === 'workflow' ? 'left' : 'right';
   console.log('ModeChooser direction  = ' + direction);
