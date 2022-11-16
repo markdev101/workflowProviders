@@ -1,20 +1,30 @@
 import * as React from 'react';
 import './css/testToggle.css';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const TestToggle: any = (props: any) => {
   // states
   const [stDirection, setDirection] = useState('left');
   const [stSwitch, setSwitch] = useState(false);
+  const thumbRef = useRef<HTMLDivElement>(null);
 
-  
-  const dir = props.direction ? props.direction : 'left';
-  const thumbClass =
-    dir === 'right'
-      ? !stSwitch
-        ? 'toggleButton toggleRight toggleWhite'
-        : 'toggleButton toggleRight toggleGreen'
-      : 'toggleButton toggleWhite';
+  let thumbClass = 'toggleButton toggleWhite';
+
+  useEffect(() => {
+    console.log('TestToggle useEffect: DIR, State=', props.direction, stDirection.toUpperCase());
+    const dir = stDirection ? stDirection : 'left';
+    thumbClass =
+      dir === 'right'
+        ? !stSwitch
+          ? 'toggleButton toggleRight toggleWhite'
+          : 'toggleButton toggleRight toggleGreen'
+        : !stSwitch
+        ? 'toggleButton toggleWhite'
+        : 'toggleButton toggleGreen';
+    console.log('TestToggle useEffect thumbClass=', thumbClass);
+    thumbRef.classList = thumbClass;
+  });
+  console.log('TestToggle: thumbClass= ', thumbClass);
 
   const handleClick = () => {
     const newDirection = stDirection === 'left' ? 'right' : 'left';
@@ -30,7 +40,11 @@ const TestToggle: any = (props: any) => {
 
   return (
     <div className="toggleBase" onClick={() => handleClick()}>
-      <div className={thumbClass} onClick={() => handleClick()}></div>
+      <div
+        ref={thumbRef}
+        className={thumbClass}
+        onClick={() => handleClick()}
+      ></div>
     </div>
   );
 };
