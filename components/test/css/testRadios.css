@@ -4,8 +4,11 @@
   left: 2px;
   text-align: left;
   width: 240px;
+  min-height:140px;
   padding: 10px;
   background-color: #fffeee;
+  border:solid 1px gray;
+  border-radius:6px;
 }
 .radioItem {
   display: flex;
@@ -13,6 +16,7 @@
   text-align: left;
   font-size: 12pt;
   margin-bottom: 12px;
+  margin-top:6px;
   padding-left: 4px;
 }
 .radios h4 {
@@ -35,5 +39,6 @@
 }
 
 .radioItem label {
+  margin-left:14px;
   margin-right: 6px;
 }
