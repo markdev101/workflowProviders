@@ -2,27 +2,38 @@ import * as React from 'react';
 import './css/testToggle.css';
 import { useState, useRef } from 'react';
 
+/* TestToggle - stateless toggle
+ *    set 'direction' attribute to 'left' or 'right'
+ *    set 'switch' attribute to 'true' or 'false'
+ */
 const TestToggle: any = (props: any) => {
   // states
-  const [stDirection, setDirection] = useState(props.direction);
-  const [stSwitch, setSwitch] = useState(false);
+  // const [stDirection, setDirection] = useState(props.direction);
+  // const [stSwitch, setSwitch] = useState(false);
   const thumbRef = useRef<HTMLDivElement>(null);
+  const dir = props.direction;
+  const isSwitch =
+    typeof props.switch != undefined
+      ? props.switch === 'true'
+        ? true
+        : false
+      : false;
 
   // change the thumb directions based on state
   let thumbClass =
-    stDirection === 'right'
-      ? !stSwitch
+    dir === 'right'
+      ? !isSwitch
         ? 'toggleButton toggleRight toggleWhite'
         : 'toggleButton toggleRight toggleGreen'
-      : !stSwitch
+      : !isSwitch
       ? 'toggleButton toggleWhite'
       : 'toggleButton toggleGreen';
 
   const handleClick = () => {
-    const newDirection = stDirection === 'left' ? 'right' : 'left';
-    setDirection(newDirection); // async
+    const newDirection = dir === 'left' ? 'right' : 'left';
     // notify parent via callback
     if (props.onToggle) {
+      // callback should trigger a re-render of this with direction attribute set correctly
       props.onToggle(newDirection);
     }
   };
