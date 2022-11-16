@@ -5,31 +5,6 @@ import { useState } from 'react';
 const TestRadios: any = (props: any) => {
   const [selected, setSelected] = useState(props.selected || '');
 
-  // states
-  // const [stDirection, setDirection] = useState("left");
-  // const [stSwitch, setSwitch] = useState(false);
-
-  // parse attributes/props
-  // if (typeof props.switch !== undefined) {
-  //   setSwitch(props.switch === "true");
-  // }
-  // if (
-  //   props.direction &&
-  //   (props.direction === "left" || props.direction === "right")
-  // ) {
-  //   setDirection(props.direction);
-  // }
-
-  // const thumbClass =
-  //   stDirection === "right"
-  //     ? !stSwitch
-  //       ? "toggleButton toggleRight toggleWhite"
-  //       : "toggleButton toggleRight toggleGreen"
-  //     : "toggleButton toggleWhite";
-
-  // const handleClick = () => {
-  //   setDirection(stDirection === "left" ? "right" : "left");
-  // };
   const handleChange = (e: any) => {
     const target = e.target;
     console.log('clicked ', target);
@@ -38,15 +13,14 @@ const TestRadios: any = (props: any) => {
       setSelected(target.value);
     }
   };
-  const list = props.items ? JSON.parse(props.items) : null;
   const title = props.title ? props.title : 'Select one:';
 
   return (
     <div className="radios">
       <div className="radiosTitle">{title}</div>
       <div className="radioButtons">
-        {list && list.length > 0
-          ? list.map((v: any) => {
+        {props.items && props.items.length > 0
+          ? props.items.map((v: any) => {
               return (
                 <div className="radioItem">
                   <label>
