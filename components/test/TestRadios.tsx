@@ -7,18 +7,16 @@ const TestRadios: any = (props: any) => {
 
   const handleChange = (e: any) => {
     const target = e.target;
-    console.log('clicked ', target);
     if (target.checked) {
-      console.log('Choosing ' + target.value);
+      console.log('TestRadios= ' + target.value);
       setSelected(target.value);
     }
   };
   const spanStyle = {
     marginLeft: '10px',
   };
-  const title = props.title ? props.title : 'Select one:';
+  const title = props.title || 'Select one:';
 
-  console.log('RADIOS:  props=', props);
   return (
     <div className="radios">
       <div className="radiosTitle">{title}</div>
