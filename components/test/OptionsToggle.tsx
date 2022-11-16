@@ -1,16 +1,12 @@
 import * as React from 'react';
-// import { useState } from "react";
-import "./css/optionsToggle.css";
-import TestToggle from "./TestToggle";
+import './css/optionsToggle.css';
+import TestToggle from './TestToggle';
+
+/*  OptionsToggle - stateless component */
 
 const OptionsToggle = (props: any) => {
   const { title, left, right, select } = props;
 
-  console.log(
-    "OptionsToggle init: select=" + select + " props.select=" + props.select
-  );
-
-  // const [mode, setMode] = useState("workflow");
   const onToggleChange = (dir: string) => {
     if (props.onToggle) {
       props.onToggle(dir);

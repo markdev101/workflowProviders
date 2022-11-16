@@ -3,13 +3,11 @@ import './css/testToggle.css';
 import { useState, useRef } from 'react';
 
 /* TestToggle - stateless toggle
+ *
  *    set 'direction' attribute to 'left' or 'right'
  *    set 'switch' attribute to 'true' or 'false'
  */
 const TestToggle: any = (props: any) => {
-  // states
-  // const [stDirection, setDirection] = useState(props.direction);
-  // const [stSwitch, setSwitch] = useState(false);
   const thumbRef = useRef<HTMLDivElement>(null);
   const dir = props.direction;
   const isSwitch =
