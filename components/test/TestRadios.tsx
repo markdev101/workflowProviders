@@ -3,7 +3,7 @@ import './css/testRadios.css';
 import { useState } from 'react';
 
 const TestRadios: any = (props: any) => {
-  const [selected, setSelected] = useState('workflow');
+  const [selected, setSelected] = useState(props.selected || '');
 
   // states
   // const [stDirection, setDirection] = useState("left");
@@ -38,34 +38,31 @@ const TestRadios: any = (props: any) => {
       setSelected(target.value);
     }
   };
+  const list = props.items ? JSON.parse(props.items) : null;
   const title = props.title ? props.title : 'Select one:';
-  const items = props.items
-    ? props.items.map((v: any) => {
-        return (
-          <div className="radioItem">
-            <label>
-              <input
-                type="radio"
-                value={v.name}
-                checked={selected === v.name}
-                onChange={handleChange}
-              />
-              <span>{v.name}</span>
-            </label>
-          </div>
-        );
-      })
-    : '';
 
-  // return (
-  //   <div className="toggleBase" onClick={() => handleClick()}>
-  //     <div className={thumbClass} onClick={() => handleClick()}></div>
-  //   </div>
-  // );
   return (
     <div className="radios">
       <div className="radiosTitle">{title}</div>
-      <div className="radioButtons">{items}</div>
+      <div className="radioButtons">
+        {list && list.length > 0
+          ? list.map((v: any) => {
+              return (
+                <div className="radioItem">
+                  <label>
+                    <input
+                      type="radio"
+                      value={v.name}
+                      checked={selected === v.name}
+                      onChange={handleChange}
+                    />
+                    <span>{v.name}</span>
+                  </label>
+                </div>
+              );
+            })
+          : null}
+      </div>
     </div>
   );
 };

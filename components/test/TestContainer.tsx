@@ -26,6 +26,7 @@ const TestContainer = () => {
     overflow: 'auto',
     border: 'solid 1px gray',
   };
+  const radioItems = ['workflow', 'preset']
 
   return (
     <div>
@@ -33,7 +34,7 @@ const TestContainer = () => {
         <div> {'Mode = ' + appData.mode}</div>
         <div style={workflowDiv}>
           <ModeChooser className="modeToggle"></ModeChooser>
-          <TestRadios className="radios"></TestRadios>
+          <TestRadios className="radios" title="Select Mode:" items={radioItems} selected="preset" ></TestRadios>
         </div>
       </AppProvider>
     </div>
