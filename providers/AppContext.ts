@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-const AppContext = React.createContext({});
-export const AppProvider = AppContext.Provider;
+const AppContext = React.createContext({
+  appState: '',
+  setAppState: () => {},
+});
 
 export default AppContext;

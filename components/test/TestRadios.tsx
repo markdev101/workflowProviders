@@ -1,15 +1,22 @@
 import * as React from 'react';
 import './css/testRadios.css';
-import { useState } from 'react';
+import { useContext } from 'react';
+import AppContext from '../../providers/AppContext';
 
 const TestRadios: any = (props: any) => {
-  const [selected, setSelected] = useState(props.selected || '');
+  const { appState, setAppState } = useContext(AppContext);
+  const appObj = JSON.parse(appState);
 
   const handleChange = (e: any) => {
     const target = e.target;
     if (target.checked) {
       console.log('TestRadios= ' + target.value);
-      setSelected(target.value);
+      const newState = {
+        ...appObj,
+        mode: target.value,
+      };
+      const s = JSON.stringify(newState);
+      setAppState(s);
     }
   };
   const spanStyle = {
@@ -29,7 +36,7 @@ const TestRadios: any = (props: any) => {
                     <input
                       type="radio"
                       value={v}
-                      checked={selected === v}
+                      checked={appObj.mode === v}
                       onChange={handleChange}
                     />
                     <span style={spanStyle}>{v}</span>

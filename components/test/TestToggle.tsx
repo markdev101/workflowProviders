@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 
 const TestToggle: any = (props: any) => {
   // states
-  const [stDirection, setDirection] = useState('left');
+  const [stDirection, setDirection] = useState(props.direction);
   const [stSwitch, setSwitch] = useState(false);
   const thumbRef = useRef<HTMLDivElement>(null);
 
