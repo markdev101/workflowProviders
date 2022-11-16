@@ -8,22 +8,29 @@ const TestToggle: any = (props: any) => {
   const [stSwitch, setSwitch] = useState(false);
   const thumbRef = useRef<HTMLDivElement>(null);
 
-  let thumbClass = 'toggleButton toggleWhite';
+  let thumbClass =
+    stDirection === 'right'
+      ? !stSwitch
+        ? 'toggleButton toggleRight toggleWhite'
+        : 'toggleButton toggleRight toggleGreen'
+      : !stSwitch
+      ? 'toggleButton toggleWhite'
+      : 'toggleButton toggleGreen';
 
-  useEffect(() => {
-    console.log('TestToggle useEffect: DIR, State=', props.direction, stDirection.toUpperCase());
-    const dir = stDirection ? stDirection : 'left';
-    thumbClass =
-      dir === 'right'
-        ? !stSwitch
-          ? 'toggleButton toggleRight toggleWhite'
-          : 'toggleButton toggleRight toggleGreen'
-        : !stSwitch
-        ? 'toggleButton toggleWhite'
-        : 'toggleButton toggleGreen';
-    console.log('TestToggle useEffect thumbClass=', thumbClass);
-    thumbRef.classList = thumbClass;
-  });
+  // useEffect(() => {
+  //   console.log('TestToggle useEffect: DIR, State=', props.direction, stDirection.toUpperCase());
+  //   const dir = stDirection ? stDirection : 'left';
+  //   thumbClass =
+  //     dir === 'right'
+  //       ? !stSwitch
+  //         ? 'toggleButton toggleRight toggleWhite'
+  //         : 'toggleButton toggleRight toggleGreen'
+  //       : !stSwitch
+  //       ? 'toggleButton toggleWhite'
+  //       : 'toggleButton toggleGreen';
+  //   console.log('TestToggle useEffect thumbClass=', thumbClass);
+  //   thumbRef.classList = thumbClass;
+  // });
   console.log('TestToggle: thumbClass= ', thumbClass);
 
   const handleClick = () => {
