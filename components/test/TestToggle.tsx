@@ -7,16 +7,7 @@ const TestToggle: any = (props: any) => {
   const [stDirection, setDirection] = useState('left');
   const [stSwitch, setSwitch] = useState(false);
 
-  // parse attributes/props
-  // if (typeof props.switch !== undefined) {
-  //   setSwitch(props.switch === "true");
-  // }
-  // if (
-  //   props.direction &&
-  //   (props.direction === "left" || props.direction === "right")
-  // ) {
-  //   setDirection(props.direction);
-  // }
+  
   const dir = props.direction ? props.direction : 'left';
   const thumbClass =
     dir === 'right'
@@ -29,7 +20,9 @@ const TestToggle: any = (props: any) => {
     const newDirection = stDirection === 'left' ? 'right' : 'left';
     console.log('TESTToggle changed to ' + newDirection);
 
+    // change thumb position
     setDirection(newDirection); // async
+
     if (props.onToggle) {
       props.onToggle(newDirection);
     }
