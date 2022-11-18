@@ -30,10 +30,3 @@ export const MultiValueProvider = ({ children }) => {
 }
 
 
-const MVPControl: any = (props: any) => {
-    const {color, type} = React.useContext(MultiValueContext)
-    // destructure context
-    const {{color, setColor}, {type, setType}} = v;
-
-
-} 
